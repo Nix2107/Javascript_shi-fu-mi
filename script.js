@@ -15,36 +15,42 @@ function playRound (computerSelection = getComputerChoice(), playerSelection = p
 
     if (playerChoice === "scissors" && computerSelection === "rock") {
         computerScore += 1;
-        return `computer: ${computerScore}, you: ${playerScore}`;
+        return `You lost the round! current score is computer: ${computerScore}, you: ${playerScore}`;
     } else if (playerChoice === "rock" && computerSelection === "paper") {
         computerScore += 1;
-        return `computer: ${computerScore}, you: ${playerScore}`;
+        return `You lost the round! current score is computer: ${computerScore}, you: ${playerScore}`;
     } else if (playerChoice === "paper" && computerSelection === "scissors") {
         computerScore += 1;
-        return `computer: ${computerScore}, you: ${playerScore}`;
+        return `You lost the round! current score is computer: ${computerScore}, you: ${playerScore}`;
     } else if (playerChoice === "paper" && computerSelection === "rock") { 
         playerScore += 1;
-        return `computer: ${computerScore}, you: ${playerScore}`;
+        return `You won the round! current score is computer: ${computerScore}, you: ${playerScore}`;
     } else if (playerChoice === "scissors" && computerSelection === "paper") {
         playerScore += 1;
-        return `computer: ${computerScore}, you: ${playerScore}`;
+        return `You won the round! current score is computer: ${computerScore}, you: ${playerScore}`;
     } else if (playerChoice === "rock" && computerSelection === "scissors") {
         playerScore += 1;
-        return `computer: ${computerScore}, you: ${playerScore}`;
+        return `You won the round! current score is computer: ${computerScore}, you: ${playerScore}`;
     } else {
-        computerScore = 0;
-        playerScore = 0;
-        return `It's a draw! computer: ${computerScore}, you: ${playerScore}`
+        return `It's a draw! current score is computer: ${computerScore}, you: ${playerScore}`
     }
 
 }
 
-function game() 
+
+function playGame() 
 
 {
     for (let numberOfRounds = 0; numberOfRounds < 5; numberOfRounds++) 
-    {
-        console.log (playRound());
-        
+    {   
+        console.log (playRound());    
     }
+    if (playerScore < computerScore) {
+        return "You lost the game :( ";
+    } else if (playerScore == computerScore){
+        return "It's a draw, you have the same score";
+    } else if (playerScore > computerScore) {
+        return "Yayyy, you won the game!! :D ";
+    }
+
 } 
