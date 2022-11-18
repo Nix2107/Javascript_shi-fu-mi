@@ -1,0 +1,22 @@
+body {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 100px;
+}
+
+#gamecontainer {
+
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+
+#rock, #paper, #scissors {
+
+    width: 150px;
+    height: 75px;
+    font-size: large;
+    font-weight: 600;
+}
