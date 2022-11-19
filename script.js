@@ -3,7 +3,7 @@
 let computerChoiceList = ["rock", "paper", "scissors"];
 let playerScore = 0;
 let computerScore = 0;
-let numberOfRounds = 0;
+let roundsLeft = 5;
 
 /* selecting the html elements which will be used in-game */
 
@@ -21,12 +21,15 @@ let finalResultPara = document.querySelector ('#resultp2');
 const pScorepara = document.querySelector ('#p-scorespan');
 const cScorepara = document.querySelector ('#c-scorespan');
 
+let restartButton = document.querySelector ('#restartbtn');
+restartButton.disabled = true;
+
 /*setting the main mechanics of the game */
 
 function playRoundRock(playerSelection = playerChoiceRock, 
                     computerSelection = computerChoiceList[Math.floor ((Math.random()*3))]) 
 {
-    numberOfRounds += 1;
+    roundsLeft -= 1;
 
     if (playerSelection === computerSelection) 
     {resultPara.textContent = `It's a tie: computer also chose ${computerSelection}`} 
@@ -46,7 +49,7 @@ function playRoundRock(playerSelection = playerChoiceRock,
 function playRoundPaper(playerSelection = playerChoicePaper, 
                     computerSelection = computerChoiceList[Math.floor ((Math.random()*3))]) 
 {
-    numberOfRounds += 1;
+    roundsLeft -= 1;
 
     if (playerSelection === computerSelection) 
     {resultPara.textContent = `It's a tie: computer also chose ${computerSelection}`}  
@@ -66,13 +69,13 @@ function playRoundPaper(playerSelection = playerChoicePaper,
 function playRoundScissors(playerSelection = playerChoiceScissors, 
                         computerSelection = computerChoiceList[Math.floor ((Math.random()*3))]) 
 {
-    numberOfRounds += 1;
+    roundsLeft -= 1;
     
     if (playerSelection === computerSelection)
     {resultPara.textContent = `It's a tie: computer also chose ${computerSelection}`}  
     
     else if (computerSelection === "rock")
-    {resultPara.textContent = `You lost the game: computer chose ${computerSelection}`
+    {resultPara.textContent = `You lost the round: computer chose ${computerSelection}`
     computerScore += 1}
 
     else if (computerSelection === "paper")
@@ -86,7 +89,7 @@ function playRoundScissors(playerSelection = playerChoiceScissors,
 
 function endGame() 
 {
-    if (numberOfRounds === 5)
+    if (roundsLeft === 0)
     {
         if (playerScore === computerScore) 
         {
@@ -94,15 +97,32 @@ function endGame()
         }
         else if (playerScore > computerScore)
         {
-            finalResultPara.textContent = `Game Over, Congratulations! You Won!`
+            finalResultPara.textContent = `Game Over, Congratulations! You Won!`;
         }
         else if (playerScore < computerScore)
         {
-            finalResultPara.textContent = `Game Over, Too bad, you lost :(, better luck next time!`
+            finalResultPara.textContent = `Game Over, Too bad, you lost :( better luck next time!`;
         }
+
+        playerRock.disabled = true;
+        playerPaper.disabled = true;
+        playerScissors.disabled = true;
+        restartButton.disabled = false;
     }    
 }
 /* Setting the event listeners which will enable us to play a round for every click on a button */
-const RockRound = playerRock.addEventListener ('click', () => {playRoundRock (); endGame();})
-const PaperRound = playerPaper.addEventListener ('click', ()  => {playRoundPaper (); endGame();})
-const ScissorsRound = playerScissors.addEventListener ('click', () => {playRoundScissors(); endGame;})
+const RockRound = playerRock.addEventListener ('click', () => {playRoundRock (); endGame();});
+const PaperRound = playerPaper.addEventListener ('click', ()  => {playRoundPaper (); endGame();});
+const ScissorsRound = playerScissors.addEventListener ('click', () => {playRoundScissors (); endGame ();});
+/*setting up a restart button to be able to restart the game after 5 rounds*/
+const gameRestart = restartButton.addEventListener ('click', () => {playerScore = 0;
+                                                                    computerScore = 0;
+                                                                    numberOfRounds = 0;
+                                                                    restartButton.disabled = true;
+                                                                    playerRock.disabled = false;
+                                                                    playerPaper.disabled = false;
+                                                                    playerScissors.disabled = false;
+                                                                    cScorepara.textContent = computerScore.toString();
+                                                                    pScorepara.textContent = playerScore.toString();
+                                                                    resultPara.textContent = "";
+                                                                    finalResultPara.textContent = "";})

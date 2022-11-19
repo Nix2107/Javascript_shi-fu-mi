@@ -14,7 +14,7 @@ body {
     gap: 50px;
 }
 
-#rock, #paper, #scissors {
+#rock, #paper, #scissors, #restartbtn {
 
     width: 150px;
     height: 75px;
