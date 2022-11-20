@@ -3,15 +3,55 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding-top: 100px;
     flex-direction: column;
+    background-color: #333;
+    color: azure;
 }
 
 #gamecontainer {
 
     display: flex;
-    flex-direction: column;
     gap: 50px;
+    padding: 50px;
+}
+
+#scoreboard {
+
+    display: flex;
+    width: 50vw;
+    justify-content:center;
+    gap: 20px;
+}
+
+#computerscore, #playerscore {
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid azure;
+    padding: 10px;
+    width: 25%;
+    height: 15%;
+}
+
+#p-scorespan, #c-scorespan {
+
+    font-size: 25px;
+    font-weight: 600;
+}
+
+#gameresult {
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#resultp1, #resultp2 {
+
+    font-size:larger;
 }
 
 #rock, #paper, #scissors, #restartbtn {
@@ -20,4 +60,20 @@ body {
     height: 75px;
     font-size: large;
     font-weight: 600;
+    border-radius: 5px;
+}
+
+#rock {
+
+    background-color: #d2d3e5;
+}
+
+#paper {
+
+    background-color: antiquewhite;
+}
+
+#scissors {
+
+    background-color: #d2e5d3;
 }

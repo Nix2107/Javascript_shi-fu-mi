@@ -91,6 +91,11 @@ function endGame()
 {
     if (roundsLeft === 0)
     {
+        playerRock.disabled = true;
+        playerPaper.disabled = true;
+        playerScissors.disabled = true;
+        restartButton.disabled = false;
+        
         if (playerScore === computerScore) 
         {
             finalResultPara.textContent = `Game Over, It's a tie!`;    
@@ -104,10 +109,6 @@ function endGame()
             finalResultPara.textContent = `Game Over, Too bad, you lost :( better luck next time!`;
         }
 
-        playerRock.disabled = true;
-        playerPaper.disabled = true;
-        playerScissors.disabled = true;
-        restartButton.disabled = false;
     }    
 }
 /* Setting the event listeners which will enable us to play a round for every click on a button */
