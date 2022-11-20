@@ -77,3 +77,36 @@ body {
 
     background-color: #d2e5d3;
 }
+
+@media screen and (max-width: 420px)  
+{
+    body {
+        display: block;
+        text-align: center;
+    }    
+
+    #gamecontainer {
+        display: block;
+        padding: 10px;
+    }
+
+    #scoreboard {
+
+        display: flex;
+        justify-content:center;
+        width: 100%;
+        gap: 20px;
+    }
+
+    #p-scorespan, #c-scorespan {
+
+        font-size: 20px;
+        font-weight: 600;
+    }
+
+    #gameresult {
+
+        display: block;
+        text-align: center;
+    }
+}
