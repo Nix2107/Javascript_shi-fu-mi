@@ -116,14 +116,4 @@ const RockRound = playerRock.addEventListener ('click', () => {playRoundRock ();
 const PaperRound = playerPaper.addEventListener ('click', ()  => {playRoundPaper (); endGame();});
 const ScissorsRound = playerScissors.addEventListener ('click', () => {playRoundScissors (); endGame ();});
 /*setting up a restart button to be able to restart the game after 5 rounds*/
-const gameRestart = restartButton.addEventListener ('click', () => {playerScore = 0;
-                                                                    computerScore = 0;
-                                                                    numberOfRounds = 0;
-                                                                    restartButton.disabled = true;
-                                                                    playerRock.disabled = false;
-                                                                    playerPaper.disabled = false;
-                                                                    playerScissors.disabled = false;
-                                                                    cScorepara.textContent = computerScore.toString();
-                                                                    pScorepara.textContent = playerScore.toString();
-                                                                    resultPara.textContent = "";
-                                                                    finalResultPara.textContent = "";})
+const gameRestart = restartButton.addEventListener ('click', () => {location.reload();})
