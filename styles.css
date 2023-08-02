@@ -65,24 +65,30 @@ body {
 
 #rock {
 
-    background-color: #d2d3e5;
+    background-color: rgb(42, 42, 125);
+}
+
+#rock:hover, #paper:hover, #scissors:hover {
+    background-color: black;
+    color: #d2d3e5
 }
 
 #paper {
 
-    background-color: antiquewhite;
+    background-color: white;
 }
 
 #scissors {
 
-    background-color: #d2e5d3;
+    background-color: rgb(125, 42, 42);
 }
 
-@media screen and (max-width: 420px)  
+@media screen and (max-width: 480px)  
 {
     body {
         display: block;
         text-align: center;
+        width: 100%;
     }    
 
     #gamecontainer {
